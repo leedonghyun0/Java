@@ -8,7 +8,6 @@ public class ArrayEx14 {
 		// (타입 변수명 : 배열 이름) { }
 		
 		for(String name : names) {
-			name += names;
 			System.out.println("이름 : " + name);
 		}
 

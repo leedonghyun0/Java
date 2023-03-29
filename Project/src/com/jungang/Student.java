@@ -8,14 +8,17 @@ public class Student extends Person {
 		
 	}
 	
+	// 초기화 : 생성자의 매개변수를 필드에 입력합니다.
 	public Student(String name, int age, double height, double weight, int grade, String major) {
-		this.name = name;
+		// 부모의 생성자를 호출
+		super(age, height, weight);
+		super.name = name;
 		this.grade = grade;
 		this.major = major;
 	}
 	
 	public String information() {
-		return null;
+		return "이름 "  + super.name + super.information() + this.grade + "학년 " + "전공 " + this.major;
 	}
 
 	public int getGrade() {

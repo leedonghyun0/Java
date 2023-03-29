@@ -8,14 +8,17 @@ public class Employee extends Person{
 		
 	}
 	
+	// 초기화
 	public Employee(String name, int age, double height, double weight, int salary, String dept) {
-		this.name = name;
+		// 부모 생성자는 첫번째 줄에서 호출
+		super(age, height, weight);
+		super.name = name;
 		this.salary = salary;
 		this.dept = dept;
 	}
 	
 	public String information() {
-		return null;
+		return "이름 " + super.name + super.information() + "급여 " + this.salary + " 부서 " + this.dept + "\n";
 	}
 
 	public int getSalary() {

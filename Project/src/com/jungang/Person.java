@@ -17,7 +17,7 @@ public class Person {
 	}
 	
 	public String information() {
-		return null;
+		return " 나이 " + this.age + " 신장 " + this.height + " 몸무게 " + this.weight + " ";
 	}
 
 	public int getAge() {

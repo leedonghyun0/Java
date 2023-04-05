@@ -27,10 +27,12 @@ public class Library {
 		
 		// 책의 리스트를 조회 (파일 또는 DB를 이용해서 제외)
 		// 책을 생성해서 리스트에 담아준다
-		bookList.add(new Book(1, "책", "작가1", false));
-		bookList.add(new Book(2, "책2", "작가2", false));
-		bookList.add(new Book(3, "책3", "작가3", false));
-		bookList.add(new Book(4, "책4", "작가4", false));
+		bookList = dao.getBookList();
+		
+//		bookList.add(new Book(1, "책", "작가1", false));
+//		bookList.add(new Book(2, "책2", "작가2", false));
+//		bookList.add(new Book(3, "책3", "작가3", false));
+//		bookList.add(new Book(4, "책4", "작가4", false));
 
 	}
 
@@ -39,7 +41,8 @@ public class Library {
 		// 리스트에 책을 추가 합니다
 		Book book = new Book(no, title, author, isRent);
 		bookList.add(book);
-		dao.insertBook(book);
+		// 리소스를 파일에 저장
+		dao.insertBook(bookList);
 		return true;
 	}
 
@@ -53,7 +56,7 @@ public class Library {
 		for (Book book : bookList) {
 			// 책의 일련번호 확인
 			if (index == book.getNo()) {
-				dao.deleteBook(book);
+				dao.deleteBook(bookList);
 				return bookList.remove(book);
 			}
 		}
@@ -77,7 +80,7 @@ public class Library {
 					return false;
 				}
 				book.setRent(true);
-				dao.updateBook(book);
+				dao.updateBook(bookList);
 				return true;
 			}
 		}
@@ -95,7 +98,7 @@ public class Library {
 				}
 				// 대여여부 변경 = 책의 정보를 수정
 				book.setRent(false);
-				dao.updateBook(book);
+				dao.updateBook(bookList);
 				return true;
 			}
 		}

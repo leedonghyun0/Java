@@ -108,6 +108,8 @@ public class Library {
 					book.setRent(true);
 					// 파일로 출력
 					boolean res = dao.listToFile(list);
+					// 데이터베이스 업데이트
+					
 					if(!res) {
 						book.setRent(false);
 						System.out.println("파일을 출력하는데 실패했습니다.");
@@ -136,6 +138,8 @@ public class Library {
 					// 반납 처리
 					book.setRent(false);
 					dao.listToFile(list);
+					// DB 업데이트 로직 호출
+					// dao.update(no);
 					System.out.println("반납 되었습니다.");
 					System.out.println(toString());
 					return true;
